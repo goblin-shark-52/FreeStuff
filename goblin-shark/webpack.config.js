@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  mode: process.env.NODE_ENV,
   entry: './src/client/index.js',
   output: {
     path: path.join(__dirname, '/dist'),
@@ -66,5 +67,11 @@ module.exports = {
   resolve: {
     // Enable importing JS / JSX files without specifying their extension
     extensions: ['.js', '.jsx'],
+  },
+  performance: {
+    // this refers to the case that the bundled file is overly large
+    hints: false,
+    maxAssetSize: 500000,
+    maxEntrypointSize: 500000,
   },
 };
