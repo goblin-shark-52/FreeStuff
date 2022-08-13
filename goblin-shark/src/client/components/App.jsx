@@ -9,7 +9,6 @@ const []
 
 
 
-
 // Props: none. Passes props to Sidebar and Posts container
 
 // Logic: call to server to get posts
