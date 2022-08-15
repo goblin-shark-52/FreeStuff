@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { FormControlLabel, FormGroup, Checkbox } from '@mui/material';
+import { FormControlLabel, FormGroup, Checkbox, Icon } from '@mui/material';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import './sidebar.scss';
 import axios from 'axios';
 
@@ -39,7 +40,7 @@ export default function Sidebar({ setPosts, filters = ['scissors, paper'] }) { /
       setPosts(body);
       return;
     } 
-    const { body } = axios.get('/api/tag');
+    const { body } = axios.post('/api/tag');
     setPosts(body);
   }, [selectedFilters])
 
@@ -51,7 +52,9 @@ export default function Sidebar({ setPosts, filters = ['scissors, paper'] }) { /
       <FormGroup>
         {
           filters.map((filter) => {
-            <FormControlLabel onChange={handleCheck} control={<Checkbox />} label={filter} />
+            <FormControlLabel onChange={handleCheck} control={<Checkbox 
+              size="small" 
+              color="default" sx={{ '& .MuiSvgIcon-root': { fontSize: 28 } }}/>} label={filter} />
           })
         }
       </FormGroup>
