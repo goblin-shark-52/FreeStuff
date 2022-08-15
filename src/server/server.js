@@ -11,6 +11,6 @@ app.use(cors());
 
 app.use(express.static(path.resolve(__dirname, '../../dist')));
 
-app.get('/api', (req, res) => res.status(200).send('Hi there'));
+app.get('/api', (req, res) => res.status(200).send('Hi there! Also, woot!'));
 
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
