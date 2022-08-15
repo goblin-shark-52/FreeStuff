@@ -3,7 +3,7 @@ const db = require('../models/freeStuffModel');
 
 const apiController = {};
 
-// helper function to invoke global error handler
+// helper function to invoke global error handler on server.js
 const createErr = errInfo => {
   const { method, type, err, status } = errInfo;
   return {
