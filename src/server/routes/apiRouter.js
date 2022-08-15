@@ -10,10 +10,8 @@ router.get('/', apiController.getItems, (req, res) =>
 );
 
 // POST request for adding items
-router.post(
-  '/add-item',
-  apiController.addItem,
-  (req, res) => (req, res) => res.status(200).send('Item added')
+router.post('/add-item', apiController.addItem, (req, res) =>
+  res.status(200).send('Item added')
 );
 
 // POST request for selecting tag

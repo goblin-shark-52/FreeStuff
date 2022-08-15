@@ -54,26 +54,24 @@ apiController.addItem = async (req, res, next) => {
     // insert item to item table and return the item id
     const queryStrInsert = `INSERT INTO item (name, description, quantity, imageURL)
       VALUES ($1, $2, $3, $4)
-      RETURNING _id
+      RETURNING _id;
     `;
     const insertValues = [name, description, quantity, imageURL];
     const insertData = await db.query(queryStrInsert, insertValues);
     const itemID = insertData.rows[0]._id;
-    console.log(typeof itemID);
 
     // query the tag table to get tag id from the tag name
     const queryStrTag = `SELECT _id 
       FROM tag
-      WHERE name=$1
+      WHERE name=$1;
     `;
     const tagValue = [tag];
     const tagData = await db.query(queryStrTag, tagValue);
     const tagID = tagData.rows[0]._id;
-    console.log(typeof tagID);
 
     // insert the item id and tag id into the tag_for_item table
     const queryStrTagForItem = `INSERT INTO tag_for_item (item_id, tag_id)
-      VALUES ($1, $2)
+      VALUES ($1, $2);
     `;
     const tagForItemValues = [itemID, tagID];
     await db.query(queryStrTagForItem, tagForItemValues);
