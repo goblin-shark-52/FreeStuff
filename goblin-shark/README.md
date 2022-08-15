@@ -2,7 +2,7 @@
 
 Goblin-shark
 
-UI Diagram: https://excalidraw.com/#room=abb8d1dfeac816d303b5,PyL29djN9NOpywNJWXG5kw
+UI Diagram: https://excalidraw.com/#room=d1b8fea74300008ceda1,j5-g0mDxUN5wt8x470sU8w
 
 
 Front End Resources:

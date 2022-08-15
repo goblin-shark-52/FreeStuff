@@ -1,13 +1,10 @@
 import React, { Component, useState } from 'react';
+import Sidebar from './Sidebar';
 import './app.scss';
 
 // State: Posts - derived from call to server OR mocked
     //const [state, setState] = useState(initialState);
        //states for each tag category initialized here;
-
-const []
-
-
 
 // Props: none. Passes props to Sidebar and Posts container
 
@@ -17,12 +14,12 @@ const []
   // footer
 
 function App() {
+
     return (
     <div className='App'>
       <div className="App__header"></div>
       <div className="App__content">
         <Sidebar/>
-        <PostsContainer/>
       </div>
       <div className="App__footer">
         
