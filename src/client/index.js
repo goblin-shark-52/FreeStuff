@@ -12,4 +12,3 @@ const root = createRoot(document.getElementById('root'));
 root.render(<App />);
 
 
-// AMG: added sample change here
