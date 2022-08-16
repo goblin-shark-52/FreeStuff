@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import Post from './Post'; // this should work without .jsx file ending, based on the "resolve" property in the module.exports object in webpack.config.js.
 
-
-
-
 // this is a *class* component (not a functional component) because it's stateful
 
 class PostsContainer extends Component {
@@ -17,7 +14,7 @@ class PostsContainer extends Component {
 
     componentDidMount() {
 
-        // make an API call to backend; parse the JSON string; set this array as the new value of this.state.postObjsArr
+        // make an API call to backend, parse the JSON string, and set the resulting array as the new value of this.state.postObjsArr
         fetch('/api')
             .then(res => res.json())
             .then(updatedPostObjsArr => {
@@ -34,15 +31,18 @@ class PostsContainer extends Component {
         const truncatedPostObjsArr = this.state.postObjsArr.slice(0,10);
         let postsArr = [];
         
-        truncatedPostObjsArr.forEach((post, index) => {
+
+        // this used to be: name={post.name}
+
+        truncatedPostObjsArr.forEach((postObj, index) => {
             postsArr.push(
-                <Post name={post.name} key={index} />
+                <Post name={postObj.name} description={postObj.description} date={postObj.date} quantity={postObj.quantity} imageurl={postObj.imageurl} key={index} />
             )
         });
 
         return (
             <div className="PostsContainer">
-                Hello from the PostsContainer! And the ten most (least?) recent posts are: {postsArr}
+                Hello from the PostsContainer! The ten most recent posts are: {postsArr}
             </div>
         );
     };

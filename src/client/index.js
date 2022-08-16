@@ -8,8 +8,4 @@ const projectName = 'Free Stuff!';
 // document.getElementById('#h1').innerHTML = projectName;
 
 const root = createRoot(document.getElementById('root'));
-
-// 
 root.render(<App />);
-
-
