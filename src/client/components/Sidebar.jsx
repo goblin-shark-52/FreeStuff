@@ -17,9 +17,13 @@ import axios from 'axios';
 
 // This design is highly dependent on backend to do the logic (filtering). Not the most efficient use of network resources, but benefit is less client side code which, when dealing with large amounts of data, will slow experience for user. For this project, it will allow the backend to spend more time on SQL/backend logic and free front end up to focus on connectivity of components, front and back end integration, and use of React library material UI
 
-export default function Sidebar({ setPosts, filters = ['scissors, paper'] }) { // passed setIsFiltered
-  // 
+//setPosts needs to be passed as props from app component
+
+const defaultFilters = ['scissors', 'paper', 'tape', 'glue', 'marker', 'book', 'chalk', 'covid mask', 'name tag', 'hole puncher', 'pencil', 'toy', 'globe', 'miscellaneous', 'grades K-5', 'grades 6-8', 'grades 9-12', 'child proof', 'new', 'used'];
+
+export default function Sidebar({ setPosts, filters = defaultFilters }) {
   const [selectedFilters, setSelectedFilters] = useState([]);
+  console.log('selectedFilters:', selectedFilters);
   const handleCheck = (e) => {
     setSelectedFilters(prev => {
       if (e.target.checked) { // check if checkbox is being activated or deactivated
@@ -29,33 +33,41 @@ export default function Sidebar({ setPosts, filters = ['scissors, paper'] }) { /
     })
   };
 
-
-  useEffect(async () => {
+  // the post request expects an object with a tag property assigned to the value of a tag string on the req.body
+  useEffect(() => {
+    async function getItemsByFilter() {
+      console.log('selectedFilters', selectedFilters)
     if (selectedFilters.length > 0) {
-      const paramString = '?tags=';
+      const param = {}
       selectedFilters.forEach((filter) => {
-        paramString = paramString += filter += ';'; // make sure back end splits on semicolon
+        param.tag = filter
       });
-      const { body } = await axios.get(`/api/tag${paramString}`);
+      console.log('param', param)
+      const body = await axios.post('/api/tag', param);
+      console.log(body)
       setPosts(body);
       return;
     } 
-    const { body } = axios.post('/api/tag');
+    
+    const { body } = await axios.get('/api/tag');
+    console.log('body', body);
     setPosts(body);
+  }
+    getItemsByFilter()
+  
   }, [selectedFilters])
 
-  // useEffect whenever selectedFilters changes, and there are filters present, setIsFiltered ==> true
 
 
   return (
     <div>
       <FormGroup>
         {
-          filters.map((filter) => {
+          filters.map((filter) => (
             <FormControlLabel onChange={handleCheck} control={<Checkbox 
               size="small" 
-              color="default" sx={{ '& .MuiSvgIcon-root': { fontSize: 28 } }}/>} label={filter} />
-          })
+              color="default" sx={{ '& .MuiSvgIcon-root': { fontSize: 14 } }}/>} label={filter} />
+          ))
         }
       </FormGroup>
     </div>
