@@ -14,7 +14,7 @@ const projectName = 'Free Stuff!';
 
 const root = createRoot(document.getElementById('root'));
 
-root.render(<App/>);
+root.render(<App />);
 
 
 // AMG: added sample change here

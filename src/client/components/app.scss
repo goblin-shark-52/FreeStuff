@@ -1,7 +1,12 @@
+html, body{
+  height: 100%;
+}
 body {
   border: 0;
   padding: 0;
   margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 .App{
   display: flex;
@@ -24,4 +29,9 @@ body {
   font-family: 'Roboto';
   font-size: 34px;
   box-shadow: 0 10px 10px -10px rgba(0,0,0,.2);
+}
+
+.App__content {
+  display: flex;
+  align-items: flex-start
 }
