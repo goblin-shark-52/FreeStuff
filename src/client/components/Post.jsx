@@ -7,8 +7,22 @@ const Post = props => {
     return (
         <div className="Post">
             <p>
-                <strong>name: </strong> {props.postObj.name}
+                <strong>name: </strong> {props.name}
             </p>
+        </div>
+    )
+};
+
+
+
+
+export default Post;
+
+
+/*
+
+
+
             <p>
                 <strong>description: </strong> {props.postObj.description}
             </p>
@@ -19,22 +33,20 @@ const Post = props => {
                 <strong>quantity: </strong> {props.postObj.quantity}
             </p>
             <p>
-                <strong>imageurl: </strong>
-                {/* add an img tag here  */}
-            </p>
-            <p>
-                <strong>tag: </strong>
-                {/* what will this be called when passed back from the database? not just "name", probably? */}
-            </p>
-            <p>
-                {/* add a "claim this item" button */}
-            </p>
-        </div>
-    )
-};
+                <strong>imageurl: </strong> add an image here
+                </p>
+                <p>
+                    <strong>tag -- what will be passed back here?: </strong>
+                </p>
+                <p>
+                    add a "claim this item" button here...
+                </p>
+    
+
+
+
+*/
 
 
 
 
-
-export default Post;
