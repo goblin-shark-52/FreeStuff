@@ -114,7 +114,7 @@ apiController.getItemByTag = async (req, res, next) => {
 
     res.locals.data = data2.rows;
     return next();
-  } catch (error) {
+  } catch (err) {
     return next(
       createErr({
         method: 'getItemByTag',

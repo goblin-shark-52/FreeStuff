@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Post from './Post'; // this should work without .jsx file ending, based on the "resolve" property in the module.exports object in webpack.config.js.
 
+import './posts-container.scss'
+
 // this is a *class* component (not a functional component) because it's stateful
 
 class PostsContainer extends Component {
