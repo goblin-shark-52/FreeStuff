@@ -60,7 +60,8 @@ export default function Sidebar({ setPosts, filters = defaultFilters }) {
 
 
   return (
-    <div>
+    <div className='Checkbox__form'>
+      <button type="button">find stuff</button>
       <FormGroup>
         {
           filters.map((filter) => (

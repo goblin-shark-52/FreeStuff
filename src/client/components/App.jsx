@@ -17,12 +17,11 @@ function App() {
 
     return (
     <div className='App'>
-      <div className="App__header">header!!!!!</div>
+      <div className="App__header">free stuff</div>
       <div className="App__content">
         <Sidebar/>
       </div>
       <div className="App__footer">
-        footer
       </div>
     </div>
     );
